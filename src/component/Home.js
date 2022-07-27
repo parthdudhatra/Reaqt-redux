@@ -1,26 +1,27 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
+import image from "./jeans3.jpg";
 
-function Home(){
-    return(
-        <div>Home Component
-        <div className="cart-wrapper">
-                <div className="img-wrapper item">
-                <a href="https://www.freeiconspng.com/img/45223">iPhone X and iPhone 8 png</a>
-                </div>
-                <div className="text-wrapper item">
-                    <span>
-                        I-Phone
-                    </span>
-                    <span>
-                        Price: $1000.00
-                    </span>
-                </div>
-                <div className="btn-wrapper item">
-                    <button>Add To Cart</button>
-                </div>
-            </div>
+function Home(props) {
+  console.log("Props", props)
+  return (
+    <div>
+      <h1>Home Component</h1>
+      <div className="card">
+        <img src={image} alt="Denim Jeans" style={{ width: 100 }} />
+        <h1>Tailored Jeans</h1>
+        <p className="price">$19.99</p>
+        <p>
+          Some text about the jeans. Super slim and comfy lorem ipsum lorem
+          jeansum. Lorem jeamsun denim lorem jeansum.
+        </p>
+        <p>
+          <button onClick={()=>{props.addToCartHandler({price :10000, name: "Cloth"})}}>Add to Cart</button>
+          <button className="remove-cart-btn" onClick={()=>{props.removeToCartHandler()}}>Remove to Cart</button>
+        </p>
+      </div>
     </div>
-    )
+  );
 }
 
 export default Home;
